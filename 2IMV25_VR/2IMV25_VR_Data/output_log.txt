@@ -1,0 +1,30 @@
+Initialize engine version: 5.1.3f1 (b0a23b31c3d8)
+[VRDevice] Successfully created device oculus.
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD FirePro M4000 (ID=0x682d)
+    Vendor:   ATI
+    VRAM:     1003 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Documents\GitHub\VirtualEnvironment\2IMV25_VR\2IMV25_VR\2IMV25_VR_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.121 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
