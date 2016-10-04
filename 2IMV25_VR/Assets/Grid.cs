@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+
 public class Grid : MonoBehaviour
 {
     public int arrayNumber;
@@ -16,7 +16,7 @@ public class Grid : MonoBehaviour
     private Vector3[] vertices;
     private Vector3 transformation;
     private String objectName;
-
+   
 
     private void Start()
     {
@@ -44,13 +44,13 @@ public class Grid : MonoBehaviour
 
 
         Vector3 startlocation;
+        float stepAngle;
+        float angle;
         switch (objectName)
         {
             case "WallWest":
-            case "WallEast":
-
                 //YZ - stelsel
-                startlocation = new Vector3((float)(minX), (float)(minY + 0.5 * stepY), (float)(0.5 * stepZ + minZ));
+                startlocation = new Vector3((float)(minX), (float)(minY + 0.8 * stepY), (float)(0.5 * stepZ + minZ));
                 for (int i = 0, y = 0; y < ySize; y++)
                 {
                     for (int z = 0; z < xSize; z++, i++)
@@ -59,11 +59,25 @@ public class Grid : MonoBehaviour
                         vertices[i] = location;
                     }
                 }
+                drawLetter(vertices, new Vector3(0, 90, 0), false, 0);
+                break;
+            case "WallEast":
+
+                //YZ - stelsel
+                startlocation = new Vector3((float)(minX), (float)(minY + 0.8 * stepY), (float)(0.5 * stepZ + minZ));
+                for (int i = 0, y = 0; y < ySize; y++)
+                {
+                    for (int z = 0; z < xSize; z++, i++)
+                    {
+                        Vector3 location = new Vector3(0, y * stepY, z * stepZ) + startlocation;
+                        vertices[i] = location;
+                    }
+                }
+                drawLetter(vertices, new Vector3(0, -90, 0), false, 0);
                 break;
             case "WallNorth":
-            case "WallSouth":
                 // XY - stelsel            
-                startlocation = new Vector3((float)(minX + 0.5 * stepX), (float)(minY + 0.5 * stepY), (float)minZ);
+                startlocation = new Vector3((float)(minX + 0.5 * stepX), (float)(minY + 0.8 * stepY), (float)minZ);
                 for (int i = 0, y = 0; y < ySize; y++)
                 {
                     for (int x = 0; x < xSize; x++, i++)
@@ -72,37 +86,92 @@ public class Grid : MonoBehaviour
                         vertices[i] = location;
                     }
                 }
+                drawLetter(vertices, new Vector3(0, 180, 0), false, 0);
+                break;
+            case "WallSouth":
+                // XY - stelsel            
+                startlocation = new Vector3((float)(minX + 0.5 * stepX), (float)(minY + 0.8 * stepY), (float)minZ);
+                for (int i = 0, y = 0; y < ySize; y++)
+                {
+                    for (int x = 0; x < xSize; x++, i++)
+                    {
+                        Vector3 location = new Vector3(x * stepX, y * stepY) + startlocation;
+                        vertices[i] = location;
+                    }
+                }
+                drawLetter(vertices,new Vector3(0,0,0), false, 0);
                 break;
             case "Ceiling":
+                // XZ-stelsel
+                startlocation = position;
+                stepAngle = 360 / charArray.Length;
+                angle = 0;
+                for (int i = 0; i < xSize * ySize; i++)
+                {
+                    Vector3 location = PointOnCircle((float)(0.7 * bounds.x / 2), angle, startlocation);
+
+                    vertices[i] = location;
+                    angle += stepAngle;
+
+                }
+                drawLetter(vertices, new Vector3(-90, 0, 0), true, stepAngle);
+                break;
             case "Floor":
                 // XZ-stelsel
                 startlocation = position;
-                float stepAngle = 360 / charArray.Length;
-                float angle = 0;
+                 stepAngle = 360 / charArray.Length;
+                 angle = 0;
                 for (int i = 0; i < xSize*ySize; i++)
                 {
                     Vector3 location = PointOnCircle((float)(0.7* bounds.x / 2), angle, startlocation);
+                  
                     vertices[i] = location;
                     angle += stepAngle;
+                 
                 }
+                drawLetter(vertices, new Vector3(90, 0,0),false,stepAngle);
                 break;
         }
     }
 
-  
-
-    private void OnDrawGizmos()
-    {
-        if (vertices == null)
-        {
-            return;
-        }
-        Gizmos.color = Color.black;
+   
+    private void drawLetter(Vector3[] vertices,Vector3 rotation, Boolean roof, float stepAngle)
+     {
         for (int i = 0; i < vertices.Length; i++)
-        {
-            GizmosUtils.DrawText(GUI.skin, charArray[i].ToString(), vertices[i], textColor, fontSize, yOffset);
+             {
+
+            GameObject letter = Resources.Load<GameObject>("letter");
+            GameObject clone = Instantiate(letter,vertices[i],Quaternion.identity) as GameObject;
+            clone.transform.Rotate(rotation.x, rotation.y, rotation.z);
+            if (stepAngle != 0)
+            {
+                if (roof)
+                {
+                    clone.transform.Rotate(0, 0, -stepAngle * i - 90);
+                } else
+                {
+                    clone.transform.Rotate(0, 0, stepAngle * i - 90);
+                }
+              
+            }
+            TextMesh ms = clone.GetComponent<TextMesh>();
+            ms.text = charArray[i].ToString();
         }
     }
+
+    //private void OnDrawGizmos()
+    //{
+
+    //    if (vertices == null)
+    //    {
+    //        return;
+    //    }
+    //    Gizmos.color = Color.black;
+    //    for (int i = 0; i < vertices.Length; i++)
+    //    {
+    //        GizmosUtils.DrawText(GUI.skin, charArray[i].ToString(), vertices[i], textColor, fontSize, yOffset);
+    //    }
+    //}
 
     private  Vector3 PointOnCircle(float radius, float angleInDegrees, Vector3 origin)
     {
@@ -141,8 +210,8 @@ public static class GizmosUtils
 
         if (screenPoint.z > 0) // checks necessary to the text is not visible when the camera is pointed in the opposite direction relative to the object
         {
-            var worldPosition = Camera.current.ScreenToWorldPoint(new Vector3(screenPoint.x - textSize.x * 0.5f, screenPoint.y + textSize.y * 0.5f + yOffset, screenPoint.z));
-            UnityEditor.Handles.Label(worldPosition, textContent, style);
+           
+            UnityEditor.Handles.Label(position, textContent, style);
         }
         GUI.skin = prevSkin;
 #endif

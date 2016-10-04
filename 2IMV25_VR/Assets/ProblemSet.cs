@@ -17,6 +17,7 @@ public class ProblemSet
     private char[] implementedSet;
     private int indexOfTarget;
     protected char[][] arraysToFill;
+    public int totalLength;
 
     public ProblemSet(CharSet chosenSet, Boolean target)
     {
@@ -46,9 +47,9 @@ public class ProblemSet
         indexOfTarget = rnd.Next(0, lengthArray);
         this.target = this.implementedSet[indexOfTarget];
         this.implementedSet = this.implementedSet.Where(val => val != this.target).ToArray();
+       
 
-
-        int totalLength = 0;              //to get a suitible index
+        totalLength = 0;              //to get a suitible index
         foreach (char[] i in arraysToFill)
         {
             totalLength += i.Length;
