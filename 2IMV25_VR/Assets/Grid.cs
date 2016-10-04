@@ -7,7 +7,7 @@ public class Grid : MonoBehaviour
     public int arrayNumber;
     private float yOffset = 5;
     private Color textColor = Color.black;
-    private int fontSize = 20;
+    private int fontSize = 26;
 
     private int xSize, ySize;
     private float minX, minY, minZ;
