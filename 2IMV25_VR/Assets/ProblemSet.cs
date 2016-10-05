@@ -19,8 +19,8 @@ public class ProblemSet
     private int indexOfTarget;
     protected char[][] arraysToFill;
     private int totalLength;
-    private int missingLetters = 4;
-
+    private string targetLocation;
+    private char setUsed;
     public ProblemSet(CharSet chosenSet, Boolean target)
     {
         this.arraysToFill = new char[6][];
@@ -38,10 +38,12 @@ public class ProblemSet
             case CharSet.A:
                 this.implementedSet = new char[setA.Length];
                 setA.CopyTo(implementedSet, 0);
+                setUsed = 'A';
                 break;
             case CharSet.B:
                 this.implementedSet = new char[setB.Length];
                 setB.CopyTo(implementedSet, 0);
+                setUsed = 'B';
                 break;
         }
         int lengthArray = implementedSet.Length;
@@ -56,19 +58,21 @@ public class ProblemSet
         {
             totalLength += i.Length;
         }
-        totalLength -= missingLetters;
+       
 
         int positionOfTarget = rnd.Next(0, totalLength);
+
+   
 
         int totalIndex = 0;
         //   foreach (char[] i in arraysToFill)
         for(int p =0; p < arraysToFill.Length; p++)
         {
+            ArrayList dontFill = new ArrayList();
             for (int j = 0; j < arraysToFill[p].Length; j++)
-            {
-                ArrayList dontFill = new ArrayList();
+            { 
                 switch (p)
-                {
+                {      
                     case 0:
                         //Deur
                         dontFill.Add(3);
@@ -91,6 +95,7 @@ public class ProblemSet
                     case 5:
                         break;
                 }
+
                 if (dontFill.Contains(j))
                 {
                     if (totalIndex == positionOfTarget && this.targetPresent)
@@ -101,6 +106,27 @@ public class ProblemSet
                 else { 
                     if (totalIndex == positionOfTarget && this.targetPresent)
                     {
+                        switch (p)
+                        {
+                            case 0:
+                                targetLocation = "Deur /North";
+                                break;
+                            case 1:
+                                targetLocation = "Raam /East";
+                                break;
+                            case 2:
+                                targetLocation = "Leeg / South";
+                                break;
+                            case 3:
+                                targetLocation = "Raam /West";
+                                break;
+                            case 4:
+                                targetLocation = "Floor";
+                                break;
+                            case 5:
+                                targetLocation = "Ceiling";
+                                break;
+                        }
                         arraysToFill[p][j] = this.target;
                     }
                     else
@@ -122,5 +148,12 @@ public class ProblemSet
     public char getTarget()
     {
         return this.target;
+    }
+
+    public string returnExercise()
+    {
+        String str = "";
+        str += targetPresent + ", " +target +"," +targetLocation + "," + setUsed + ",";
+        return str;
     }
 }

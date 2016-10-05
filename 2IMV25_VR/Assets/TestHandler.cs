@@ -9,9 +9,6 @@ public class TestHandler : MonoBehaviour
     private float timer = 0;
     private float startTime = 0;
     private float endTime = 0;
-    private char target = Main.ps.getTarget();
-    private string output = "";
-    private Boolean tPresent = Main.ps.targetPresent;
 
     // Use this for initialization
     void Awake()
@@ -27,8 +24,10 @@ public class TestHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         { 
             endTime = timer;
-            output = "" + tPresent + ", "+target + ", "+startTime + ", "+endTime;
-            Debug.Log(output);
+            String output = Main.ps.returnExercise() +startTime + ", "+endTime;
+            TxtWriter tw = new TxtWriter();
+            tw.addLine(output);
+        
             SceneManager.LoadScene("Introduction");
         }
     }
