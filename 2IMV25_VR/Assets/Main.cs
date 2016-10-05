@@ -7,7 +7,7 @@ public class Main : MonoBehaviour
 
     public static ProblemSet ps;
     private Boolean pressed = false;
-    private float timeLeft = 5;
+    private float timeLeft = 2;
 
     // Update is called once per frame
     void Update()
@@ -17,15 +17,13 @@ public class Main : MonoBehaviour
             if (!pressed)
             {
                 pressed = true;
-                Debug.Log("start target");
                 generatePS();
-                Vector3 position = GameObject.Find("WallSouth").transform.position;
+                Vector3 position = GameObject.Find("WallSouth").transform.position + new Vector3((float)1.3,(float)0.1,0);
                 drawTarget(position, ps.getTarget());
             }
         }
         if (pressed)
         {
-            Debug.Log("Timer" + timeLeft);
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0)
             {

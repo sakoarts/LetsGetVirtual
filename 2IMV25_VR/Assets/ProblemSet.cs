@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 
 
@@ -18,6 +19,7 @@ public class ProblemSet
     private int indexOfTarget;
     protected char[][] arraysToFill;
     private int totalLength;
+    private int missingLetters = 4;
 
     public ProblemSet(CharSet chosenSet, Boolean target)
     {
@@ -26,8 +28,8 @@ public class ProblemSet
         this.arraysToFill[1] = new char[36];
         this.arraysToFill[2] = new char[36];
         this.arraysToFill[3] = new char[36];
-        this.arraysToFill[4] = new char[25];
-        this.arraysToFill[5] = new char[25];
+        this.arraysToFill[4] = new char[20];
+        this.arraysToFill[5] = new char[20];
 
         this.targetPresent = target;
 
@@ -54,23 +56,58 @@ public class ProblemSet
         {
             totalLength += i.Length;
         }
+        totalLength -= missingLetters;
 
         int positionOfTarget = rnd.Next(0, totalLength);
 
         int totalIndex = 0;
-        foreach (char[] i in arraysToFill)
+        //   foreach (char[] i in arraysToFill)
+        for(int p =0; p < arraysToFill.Length; p++)
         {
-            for (int j = 0; j < i.Length; j++)
+            for (int j = 0; j < arraysToFill[p].Length; j++)
             {
-
-                if (totalIndex == positionOfTarget && this.targetPresent)
+                ArrayList dontFill = new ArrayList();
+                switch (p)
                 {
-                    i[j] = this.target;
+                    case 0:
+                        //Deur
+                        dontFill.Add(3);
+                        dontFill.Add(9);
+                        dontFill.Add(15);
+                        dontFill.Add(21);
+                        break;
+                    case 1:
+                        dontFill.Add(15);
+                        dontFill.Add(21);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        dontFill.Add(14);
+                        dontFill.Add(20);
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
                 }
-                else
+                if (dontFill.Contains(j))
                 {
-                    int random = rnd.Next(0, this.implementedSet.Length);
-                    i[j] = this.implementedSet[random];
+                    if (totalIndex == positionOfTarget && this.targetPresent)
+                    {
+                        positionOfTarget++;
+                    }
+                }
+                else { 
+                    if (totalIndex == positionOfTarget && this.targetPresent)
+                    {
+                        arraysToFill[p][j] = this.target;
+                    }
+                    else
+                    {
+                        int random = rnd.Next(0, this.implementedSet.Length);
+                        arraysToFill[p][j] = this.implementedSet[random];
+                    }
                 }
                 totalIndex++;
             }

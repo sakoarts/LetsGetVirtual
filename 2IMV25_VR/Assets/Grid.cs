@@ -36,7 +36,7 @@ public class Grid : MonoBehaviour
         this.xSize = (int)size;
         this.ySize = xSize;
 
-        vertices = new Vector3[(xSize) * (ySize)];
+        vertices = new Vector3[charArray.Length];
     
         float stepX = bounds.x / xSize;
         float stepY = bounds.y / ySize;
@@ -106,9 +106,9 @@ public class Grid : MonoBehaviour
                 startlocation = position;
                 stepAngle = 360 / charArray.Length;
                 angle = 0;
-                for (int i = 0; i < xSize * ySize; i++)
+                for (int i = 0; i < charArray.Length; i++)
                 {
-                    Vector3 location = PointOnCircle((float)(0.7 * bounds.x / 2), angle, startlocation);
+                    Vector3 location = PointOnCircle((float)(0.65 * bounds.x / 2), angle, startlocation);
 
                     vertices[i] = location;
                     angle += stepAngle;
@@ -121,9 +121,9 @@ public class Grid : MonoBehaviour
                 startlocation = position;
                  stepAngle = 360 / charArray.Length;
                  angle = 0;
-                for (int i = 0; i < xSize*ySize; i++)
+                for (int i = 0; i < charArray.Length; i++)
                 {
-                    Vector3 location = PointOnCircle((float)(0.7* bounds.x / 2), angle, startlocation);
+                    Vector3 location = PointOnCircle((float)(0.65* bounds.x / 2), angle, startlocation);
                   
                     vertices[i] = location;
                     angle += stepAngle;
