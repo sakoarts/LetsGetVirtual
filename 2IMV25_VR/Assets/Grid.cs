@@ -135,7 +135,7 @@ public class Grid : MonoBehaviour
     }
 
    
-    private void drawLetter(Vector3[] vertices,Vector3 rotation, Boolean roof, float stepAngle)
+    public void drawLetter(Vector3[] vertices,Vector3 rotation, Boolean roof, float stepAngle)
      {
         for (int i = 0; i < vertices.Length; i++)
              {

@@ -13,11 +13,11 @@ public class ProblemSet
     private readonly char[] setB = new char[] { 'E', 'F', 'H', 'I', 'L', 'T' };
 
     private char target;
-    protected Boolean targetPresent;
+    public Boolean targetPresent;
     private char[] implementedSet;
     private int indexOfTarget;
     protected char[][] arraysToFill;
-    public int totalLength;
+    private int totalLength;
 
     public ProblemSet(CharSet chosenSet, Boolean target)
     {

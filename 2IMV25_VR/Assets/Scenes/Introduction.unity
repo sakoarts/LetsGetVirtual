@@ -42,7 +42,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -71,7 +71,8 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000001, guid: 119ab680bf37a7841a29ade4c455a9a5,
+    type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -238,7 +239,6 @@ GameObject:
   - 33: {fileID: 452311215}
   - 65: {fileID: 452311214}
   - 23: {fileID: 452311213}
-  - 114: {fileID: 452311217}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -307,18 +307,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97051545}
   m_RootOrder: 4
---- !u!114 &452311217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 452311212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3f33bb59188304ca5fcf73bb7fc708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrayNumber: 4
 --- !u!1001 &624169316
 Prefab:
   m_ObjectHideFlags: 0
@@ -326,6 +314,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_FootstepSounds.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_FovKick.IncreaseCurve.m_Curve.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -364,7 +360,71 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_FovKick.FOVIncrease
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_WalkSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_RunSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_RunstepLenghten
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_JumpSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_StickToGroundForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_GravityMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_UseFovKick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_UseHeadBob
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_HeadBob.HorizontalBobRange
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_HeadBob.VerticalBobRange
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_HeadBob.VerticaltoHorizontalRatio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_JumpBob.BobDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_JumpBob.BobAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_StepInterval
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_JumpSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_LandSound
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -459,7 +519,6 @@ GameObject:
   - 33: {fileID: 857122259}
   - 65: {fileID: 857122258}
   - 23: {fileID: 857122257}
-  - 114: {fileID: 857122261}
   m_Layer: 0
   m_Name: WallSouth
   m_TagString: Untagged
@@ -528,18 +587,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97051545}
   m_RootOrder: 3
---- !u!114 &857122261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 857122256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3f33bb59188304ca5fcf73bb7fc708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrayNumber: 3
 --- !u!1 &940555747
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +598,6 @@ GameObject:
   - 33: {fileID: 940555750}
   - 65: {fileID: 940555749}
   - 23: {fileID: 940555748}
-  - 114: {fileID: 940555752}
   m_Layer: 0
   m_Name: WallWest
   m_TagString: Untagged
@@ -620,18 +666,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97051545}
   m_RootOrder: 1
---- !u!114 &940555752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 940555747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3f33bb59188304ca5fcf73bb7fc708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrayNumber: 1
 --- !u!1 &1019197302
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +876,6 @@ GameObject:
   - 33: {fileID: 1478340713}
   - 65: {fileID: 1478340712}
   - 23: {fileID: 1478340711}
-  - 114: {fileID: 1478340715}
   m_Layer: 0
   m_Name: WallNorth
   m_TagString: Untagged
@@ -911,18 +944,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97051545}
   m_RootOrder: 2
---- !u!114 &1478340715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1478340710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3f33bb59188304ca5fcf73bb7fc708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrayNumber: 2
 --- !u!1 &1817394660
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +955,6 @@ GameObject:
   - 33: {fileID: 1817394663}
   - 65: {fileID: 1817394662}
   - 23: {fileID: 1817394661}
-  - 114: {fileID: 1817394665}
   m_Layer: 0
   m_Name: WallEast
   m_TagString: Untagged
@@ -1003,18 +1023,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97051545}
   m_RootOrder: 0
---- !u!114 &1817394665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1817394660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3f33bb59188304ca5fcf73bb7fc708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrayNumber: 0
 --- !u!1 &1948518585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1034,6 @@ GameObject:
   - 33: {fileID: 1948518590}
   - 65: {fileID: 1948518589}
   - 23: {fileID: 1948518588}
-  - 114: {fileID: 1948518587}
   m_Layer: 0
   m_Name: Ceiling
   m_TagString: Untagged
@@ -1047,18 +1054,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 97051545}
   m_RootOrder: 5
---- !u!114 &1948518587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1948518585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc3f33bb59188304ca5fcf73bb7fc708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  arrayNumber: 5
 --- !u!23 &1948518588
 MeshRenderer:
   m_ObjectHideFlags: 0
