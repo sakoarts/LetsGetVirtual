@@ -64,6 +64,7 @@
      <Compile Include="Assets\OVR\Scripts\OVRUtils.cs" />
      <Compile Include="Assets\ProblemSet.cs" />
      <Compile Include="Assets\TestHandler.cs" />
+     <Compile Include="Assets\TxtWriter.cs" />
      <None Include="Assets\OVR\OVRImageEffects\OVRLensCorrection_CA.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />

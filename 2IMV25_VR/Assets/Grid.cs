@@ -108,7 +108,7 @@ public class Grid : MonoBehaviour
                 angle = 0;
                 for (int i = 0; i < charArray.Length; i++)
                 {
-                    Vector3 location = PointOnCircle((float)(0.65 * bounds.x / 2), angle, startlocation);
+                    Vector3 location = PointOnCircle((float)(0.60 * bounds.x / 2), angle, startlocation);
 
                     vertices[i] = location;
                     angle += stepAngle;
@@ -147,7 +147,7 @@ public class Grid : MonoBehaviour
             {
                 if (roof)
                 {
-                    clone.transform.Rotate(0, 0, -stepAngle * i - 90);
+                    clone.transform.Rotate(0, 0, -stepAngle * i +90 );
                 } else
                 {
                     clone.transform.Rotate(0, 0, stepAngle * i - 90);

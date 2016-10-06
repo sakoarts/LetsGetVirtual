@@ -18,18 +18,12 @@ public class Main : MonoBehaviour
             {
                 pressed = true;
                 generatePS();
-                Vector3 position = GameObject.Find("WallSouth").transform.position + new Vector3((float)1.3,(float)0.1,0);
+                Vector3 position = GameObject.Find("WallSouth").transform.position + new Vector3((float)1.3, (float)0.1, 0);
                 drawTarget(position, ps.getTarget());
-            }
+            } else  
+                SceneManager.LoadScene("LetsGetVirtual");           
         }
-        if (pressed)
-        {
-            timeLeft -= Time.deltaTime;
-            if (timeLeft < 0)
-            {
-                SceneManager.LoadScene("LetsGetVirtual");
-            }
-        }
+       
     }
 
     private void drawTarget(Vector3 pos, char target)

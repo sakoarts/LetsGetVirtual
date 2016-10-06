@@ -80,18 +80,7 @@ public class OVRCamera : OVRComponent
 		// Used by Latency tester
 		if(ColorOnlyMaterial == null)
 		{
-			ColorOnlyMaterial = new Material (
-
-			    "Shader \"Solid Color\" {\n" +
-    			"Properties {\n" +
-                "_Color (\"Color\", Color) = (1,1,1)\n" +
-                "}\n" +
-    			"SubShader {\n" +
-    			"Color [_Color]\n" +
-    			"Pass {}\n" +
-    			"}\n" +
-    			"}"		
-			);
+			
 		}	
 	}
 
