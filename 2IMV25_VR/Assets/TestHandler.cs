@@ -7,13 +7,12 @@ public class TestHandler : MonoBehaviour
 {
 
     private float timer = 0;
-    private float startTime = 0;
     private float endTime = 0;
 
     // Use this for initialization
     void Awake()
     {
-        startTime = timer;
+   
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class TestHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         { 
             endTime = timer;
-            String output = Main.ps.returnExercise() +startTime + ", "+endTime;
+            String output = Main.ps.returnExercise() + ", "+endTime;
             TxtWriter tw = new TxtWriter();
             tw.addLine(output);
         
