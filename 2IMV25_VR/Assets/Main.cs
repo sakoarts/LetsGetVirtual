@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.VR;
 
 public class Main : MonoBehaviour
 {
@@ -8,13 +9,19 @@ public class Main : MonoBehaviour
     public static ProblemSet ps;
     private Boolean pressed = false;
     private float timeLeft = 2;
+    public static float fieldOfView;
+
+    void Awake()
+    {
+        changeFOV();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!pressed)
+            if (!pressed)   
             {
                 pressed = true;
                 generatePS();
@@ -47,16 +54,31 @@ public class Main : MonoBehaviour
         if (chance1 < 50)
         {
             ps = new ProblemSet(ProblemSet.CharSet.A, targetPresent);
-        } else
+        }
+        else
         {
             ps = new ProblemSet(ProblemSet.CharSet.B, targetPresent);
         }
     }
-    
 
-    public void nextRound()
+    private void changeFOV()
     {
-        generatePS();
-        SceneManager.LoadScene(0);
+        System.Random rnd = new System.Random();
+        int fovChance = rnd.Next(0, 100);
+        if (fovChance < 33)
+        {
+            fieldOfView =  70f;
+        }
+        else if (fovChance < 66)
+        {
+            fieldOfView = 100f;
+        }
+        else
+        {
+            fieldOfView = 130f;
+        }
+       Camera.main.fieldOfView = fieldOfView;
     }
+
+   
 }

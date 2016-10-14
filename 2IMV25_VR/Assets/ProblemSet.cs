@@ -153,7 +153,7 @@ public class ProblemSet
     public string returnExercise()
     {
         String str = "";
-        str += targetPresent + ", " +target +"," +targetLocation + "," + setUsed + ",";
+        str += targetPresent + ", " +target +", " +targetLocation + ", " + setUsed;
         return str;
     }
 }

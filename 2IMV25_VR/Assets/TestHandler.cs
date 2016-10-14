@@ -12,7 +12,7 @@ public class TestHandler : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-   
+        Camera.main.fieldOfView =  Main.fieldOfView;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class TestHandler : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         { 
             endTime = timer;
-            String output = Main.ps.returnExercise() + ", "+endTime;
+            String output = Main.ps.returnExercise() + ", " + Main.fieldOfView + ", " + endTime;
             TxtWriter tw = new TxtWriter();
             tw.addLine(output);
         
